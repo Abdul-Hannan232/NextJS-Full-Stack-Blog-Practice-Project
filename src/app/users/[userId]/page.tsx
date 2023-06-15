@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import getUser from "../../../../lib/getUser";
+import getUserPosts from "../../../../lib/getUserPosts";
 
 type Params = {
   params: {
@@ -7,7 +9,7 @@ type Params = {
 };
 
 export default function UserPage({ params: { userId } }: Params) {
-  const first = useRef(params.userId);
+  const userData: Promise<User> = getUser(userId);
 
-  return <div>page</div>;
+  return <div>page {userId} </div>;
 }
